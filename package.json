@@ -1,0 +1,25 @@
+{
+  "name": "super-slack",
+  "version": "0.0.1",
+  "description": "A tool for creating Slack Bots with Node",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxprogram/super-slack"
+  },
+  "keywords": [
+    "slack",
+    "bot"
+  ],
+  "author": "Max Olson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxprogram/super-slack/issues"
+  },
+  "homepage": "https://github.com/maxprogram/super-slack",
+  "dependencies": {
+    "q": "^1.4.1",
+    "request": "^2.58.0",
+    "lodash": "^3.10.0"
+  }
+}
