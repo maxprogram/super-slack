@@ -1,0 +1,95 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/opt/boxen/nodenv/versions/v0.10.26/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@2.12.1
+3 info using node@v0.10.26
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec { raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/Max/Dropbox/websites/super-slack',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/Max/.npm/super-slack/0.0.1/package.tgz not in flight; packing
+9 verbose tar pack [ '/Users/Max/.npm/super-slack/0.0.1/package.tgz',
+9 verbose tar pack   '/Users/Max/Dropbox/websites/super-slack' ]
+10 verbose tarball /Users/Max/.npm/super-slack/0.0.1/package.tgz
+11 verbose folder /Users/Max/Dropbox/websites/super-slack
+12 info prepublish super-slack@0.0.1
+13 verbose addLocalTarball adding from inside cache /Users/Max/.npm/super-slack/0.0.1/package.tgz
+14 silly cache afterAdd super-slack@0.0.1
+15 verbose afterAdd /Users/Max/.npm/super-slack/0.0.1/package/package.json not in flight; writing
+16 verbose afterAdd /Users/Max/.npm/super-slack/0.0.1/package/package.json written
+17 silly publish { name: 'super-slack',
+17 silly publish   version: '0.0.1',
+17 silly publish   description: 'A tool for creating Slack Bots with Node',
+17 silly publish   main: 'index.js',
+17 silly publish   repository:
+17 silly publish    { type: 'git',
+17 silly publish      url: 'git+https://github.com/maxprogram/super-slack.git' },
+17 silly publish   keywords: [ 'slack', 'bot' ],
+17 silly publish   author: { name: 'Max Olson' },
+17 silly publish   license: 'MIT',
+17 silly publish   bugs: { url: 'https://github.com/maxprogram/super-slack/issues' },
+17 silly publish   homepage: 'https://github.com/maxprogram/super-slack',
+17 silly publish   dependencies: { q: '^1.4.1', request: '^2.58.0', lodash: '^3.10.0' },
+17 silly publish   readme: '# Super Slack\n\nA tool for creating Slack bots with Node.js. \n\n```js\nvar Slack = require(\'super-slack\');\n\nvar slackBot = new Slack.Bot(\'http://slack/webhook\', {\n    username: \'Elon Musk Bot\',\n    emoji: \':rocket:\',\n    channel: \'#general\' // Default channel\n});\n\nvar quotes = [\n    "When something is important enough, you do it even if the odds are not in your favor.",\n    "Failure is an option here. If things are not failing, you are not innovating enough.",\n    "Any product that needs a manual to work is broken."\n];\n\nslackBot.send(quotes[Math.floor(Math.random() * quotes.length)])\n.then(console.log)\n.fail(console.error);\n```\n\n### Bot(webhook, options)\n\n* `webhook` (*string*) Incoming Webhook provided by Slack.\n* `options` (*object*)\n    * `username`: Name of the bot\n    * [`emoji`]: Emoji icon to use as the bot\'s avatar\n    * [`icon_url`]: URL of custom avatar icon\n    * [`channel`]: Default channel to post to\n\n#### Bot.send(message)\n\n* `message` (*Object|string*): The message to send to the Slack channel.\n    * `text`: Text of message to send.\n    * `channel`: Channel to send the message to.\n\n#### Bot.respond(request)\n',
+17 silly publish   readmeFilename: 'README.md',
+17 silly publish   gitHead: '5adb78310c71c2e6e902d9bd0436eb4aaba96d0c',
+17 silly publish   _id: 'super-slack@0.0.1',
+17 silly publish   scripts: {},
+17 silly publish   _shasum: '55541556a93c2c1a440e473eac8201c5e2e781b0',
+17 silly publish   _from: '.' }
+18 verbose getPublishConfig undefined
+19 silly mapToRegistry name super-slack
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/super-slack
+23 verbose publish registryBase https://registry.npmjs.org/
+24 silly publish uploading /Users/Max/.npm/super-slack/0.0.1/package.tgz
+25 verbose request uri https://registry.npmjs.org/super-slack
+26 verbose request sending authorization for write operation
+27 info attempt registry request try #1 at 13:42:37
+28 verbose request using bearer token for auth
+29 verbose request id 375524d53ed81392
+30 http request PUT https://registry.npmjs.org/super-slack
+31 http 403 https://registry.npmjs.org/super-slack
+32 verbose headers { 'content-type': 'application/json',
+32 verbose headers   'cache-control': 'max-age=60',
+32 verbose headers   'content-length': '95',
+32 verbose headers   'accept-ranges': 'bytes',
+32 verbose headers   date: 'Mon, 06 Jul 2015 20:42:38 GMT',
+32 verbose headers   via: '1.1 varnish',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'x-served-by': 'cache-sjc3130-SJC',
+32 verbose headers   'x-cache': 'MISS',
+32 verbose headers   'x-cache-hits': '0',
+32 verbose headers   'x-timer': 'S1436215357.743860,VS0,VE1192' }
+33 verbose request invalidating /Users/Max/.npm/registry.npmjs.org/super-slack on PUT
+34 error publish Failed PUT 403
+35 verbose stack Error: "You cannot publish over the previously published version 0.0.1." : super-slack
+35 verbose stack     at CachingRegistryClient.<anonymous> (/opt/boxen/nodenv/versions/v0.10.26/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:247:14)
+35 verbose stack     at Request._callback (/opt/boxen/nodenv/versions/v0.10.26/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:170:14)
+35 verbose stack     at Request.self.callback (/opt/boxen/nodenv/versions/v0.10.26/lib/node_modules/npm/node_modules/request/request.js:197:22)
+35 verbose stack     at Request.EventEmitter.emit (events.js:98:17)
+35 verbose stack     at Request.<anonymous> (/opt/boxen/nodenv/versions/v0.10.26/lib/node_modules/npm/node_modules/request/request.js:1050:14)
+35 verbose stack     at Request.EventEmitter.emit (events.js:117:20)
+35 verbose stack     at IncomingMessage.<anonymous> (/opt/boxen/nodenv/versions/v0.10.26/lib/node_modules/npm/node_modules/request/request.js:996:12)
+35 verbose stack     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+35 verbose stack     at _stream_readable.js:920:16
+35 verbose stack     at process._tickCallback (node.js:415:13)
+36 verbose statusCode 403
+37 verbose pkgid super-slack
+38 verbose cwd /Users/Max/Dropbox/websites/super-slack
+39 error Darwin 14.4.0
+40 error argv "node" "/opt/boxen/nodenv/versions/v0.10.26/bin/npm" "publish"
+41 error node v0.10.26
+42 error npm  v2.12.1
+43 error code E403
+44 error "You cannot publish over the previously published version 0.0.1." : super-slack
+45 error If you need help, you may report this error at:
+45 error     <https://github.com/npm/npm/issues>
+46 verbose exit [ 1, true ]
