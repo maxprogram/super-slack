@@ -18,6 +18,9 @@ function SlackBot(hookURL, ops) {
 }
 
 SlackBot.prototype.send = function(message) {
+    if (typeof message === 'string') {
+        message = { text: message };
+    }
     if (typeof message.text !== 'string') {
         return Q.reject({ message:'No text specified' });
     }
