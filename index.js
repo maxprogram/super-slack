@@ -17,12 +17,9 @@ function SlackBot(hookURL, ops) {
     this.options = ops;
 }
 
-SlackBot.prototype.send = function(message) {
+SlackBot.prototype._createMsg = function(message) {
     if (typeof message === 'string') {
         message = { text: message };
-    }
-    if (typeof message.text !== 'string') {
-        return Q.reject({ message:'No text specified' });
     }
 
     var body = _.defaults(message, {
@@ -33,7 +30,7 @@ SlackBot.prototype.send = function(message) {
         text: message.message
     });
 
-    body = _.pick(body, [
+    return _.pick(body, [
         'text',
         'username',
         'channel',
@@ -43,26 +40,36 @@ SlackBot.prototype.send = function(message) {
         'unfurl_links',
         'link_names'
     ]);
+};
+
+SlackBot.prototype.send = function(message) {
+    if (typeof message.text !== 'string') {
+        return Q.reject({ message:'No text specified' });
+    }
 
     return post({
         proxy: (this.options && this.options.proxy) || process.env.http_proxy,
         url:   this.hookURL,
-        body:  JSON.stringify(body)
+        body:  JSON.stringify(this._createMsg(message))
     });
 };
 
 
-SlackBot.prototype.respond = function(query) {
-    return Q({
-        token: token,
-        team_id: team_id,
-        channel_id: channel_id,
-        channel_name: channel_name,
+SlackBot.prototype.respond = function(query, response) {
+    var newResponse = response({
+        token: query.token,
+        team_id: query.team_id,
+        channel_id: query.channel_id,
+        channel_name: query.channel_name,
+        channel: query.channel_name,
         timestamp: new Date(query.timestamp),
-        user_id: user_id,
-        user_name: user_name,
-        text: text
+        user_id: query.user_id,
+        user_name: query.user_name,
+        username: query.user_name,
+        text: query.text
     });
+
+    return Q(this._createMsg(newResponse));
 };
 
 module.exports = {
