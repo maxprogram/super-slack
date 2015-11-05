@@ -43,7 +43,7 @@ SlackBot.prototype._createMsg = function(message) {
 };
 
 SlackBot.prototype.send = function(message) {
-    if (typeof message.text !== 'string') {
+    if (typeof message.text !== 'string' && typeof message !== 'string') {
         return Q.reject({ message:'No text specified' });
     }
 
