@@ -3,7 +3,7 @@ var Q = require('q');
 var request  = require('request');
 
 function post(url) {
-    return Q.nfapply(request, [url]).then(function(res) {
+    return Q.nfapply(request.post, [url]).then(function(res) {
         if (res[0].statusCode == 200) {
             return res[1];
         } else {

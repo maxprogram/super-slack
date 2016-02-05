@@ -1,6 +1,6 @@
 {
   "name": "super-slack",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A tool for creating Slack Bots with Node",
   "main": "index.js",
   "repository": {
@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/maxprogram/super-slack",
   "dependencies": {
-    "q": "^1.4.1",
-    "request": "^2.58.0",
-    "lodash": "^3.10.0"
+    "q": "1.4.1",
+    "request": "2.69.0",
+    "lodash": "4.0.0"
   }
 }
